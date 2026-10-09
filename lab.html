@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Loaders lab</title>
+    <style>
+      html, body { margin: 0; background: #1d1c1a; color: #e0d9d3; font: 12px/1.4 system-ui, sans-serif; }
+      .one { position: absolute; left: 0; top: 0; width: 144px; height: 144px; display: grid; place-items: center; }
+      .all { display: grid; grid-template-columns: repeat(auto-fill, 128px); gap: 8px; padding: 16px; }
+      .all figure { margin: 0; height: 128px; display: grid; grid-template-rows: 1fr auto; place-items: center; border: 1px solid #2c2b29; border-radius: 12px; padding-bottom: 8px; }
+    </style>
+    <script type="module" src="/src/lab.tsx"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

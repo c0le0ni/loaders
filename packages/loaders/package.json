@@ -1,0 +1,47 @@
+{
+  "name": "@coleoni/loaders",
+  "version": "1.0.0",
+  "description": "27 loading indicators for React. Size, color, speed and pause on every one. Free, by Coleoni.",
+  "license": "MIT",
+  "author": "Coleoni (https://coleoni.com)",
+  "homepage": "https://loaders.coleoni.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/c0le0ni/loaders.git",
+    "directory": "packages/loaders"
+  },
+  "bugs": "https://github.com/c0le0ni/loaders/issues",
+  "keywords": [
+    "react",
+    "loader",
+    "loading",
+    "spinner",
+    "indicator",
+    "animation",
+    "svg",
+    "css"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./html": {
+      "types": "./dist/html.d.ts",
+      "import": "./dist/html.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build && tsc -p tsconfig.build.json"
+  },
+  "peerDependencies": {
+    "react": ">=19"
+  }
+}
