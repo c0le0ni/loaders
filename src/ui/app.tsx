@@ -83,7 +83,7 @@ export function App({ S, initial }: { S: Strings; initial: string }) {
             <h1 className="sr-only">{S.h1}</h1>
             <Gallery selected={selected} onSelect={select} color={color} settings={settings} S={S} />
           </div>
-          <div ref={inspector} data-intro-card className="order-first scroll-mt-3 md:order-none md:-mr-5 md:w-[23.25rem] md:shrink-0 md:overflow-y-auto md:pr-5 md:pb-8">
+          <div ref={inspector} data-intro-card className="order-first scroll-mt-3 md:order-none md:flex md:min-h-0 md:w-[22rem] md:shrink-0 md:flex-col md:pb-4">
             <Inspector name={selected} settings={settings[selected]} onSettings={change} onReset={reset} color={color} onColor={setColor} S={S} />
           </div>
         </main>
@@ -101,11 +101,11 @@ export function App({ S, initial }: { S: Strings; initial: string }) {
             <span className="sr-only"> {S.newTab}</span>
           </a>
           <span aria-hidden>·</span>
-          <a href={SKILLS} rel="noopener" className="transition-colors hover:text-foreground">
+          <a href={`${SKILLS}${S.path}`} rel="noopener" className="transition-colors hover:text-foreground">
             {S.skills}
           </a>
           <span aria-hidden>·</span>
-          <a href={BLOB} rel="noopener" className="transition-colors hover:text-foreground">
+          <a href={`${BLOB}${S.path}`} rel="noopener" className="transition-colors hover:text-foreground">
             {S.blob}
           </a>
         </footer>

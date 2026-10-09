@@ -207,7 +207,7 @@ const pt: Strings = {
   toLight: 'Tema claro',
   toDark: 'Tema escuro',
   newTab: '(abre em nova aba)',
-  madeBy: 'Feito por',
+  madeBy: 'Feito pela',
   about: {
     arc: 'um traço aberto girando.',
     atom: 'um círculo com três anéis girando em profundidade dentro dele.',
