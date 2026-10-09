@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "dev": "vite --port 5330 --strictPort",
-    "build": "vite-node scripts/pages.ts && vite build",
+    "build": "vite-node scripts/pages.ts && vite build && vite-node scripts/pages.ts -- --loaders",
     "build:lib": "npm run build -w @coleoni/loaders",
     "preview": "vite preview --port 5331",
     "test": "vitest run",

@@ -17,5 +17,5 @@
       "@coleoni/loaders/html": ["./packages/loaders/src/html.ts"]
     }
   },
-  "include": ["src", "test", "scripts", "packages/loaders/src"]
+  "include": ["src", "test", "packages/loaders/src"]
 }

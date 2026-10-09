@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://loaders.coleoni.com/sitemap.xml
