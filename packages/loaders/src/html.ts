@@ -1,4 +1,5 @@
 import { BASE_CSS, resolveExtras, rootAttrs, type AnyDef, type Node, type Options } from './core';
+import { loaders } from './defs';
 
 const esc = (v: string | number) => String(v).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 
@@ -30,3 +31,15 @@ export const styles = (def: AnyDef) => `${BASE_CSS}\n${def.css}`;
 
 /** a self-contained snippet: the markup and its <style>, ready to paste anywhere */
 export const snippet = (def: AnyDef, o: Options = {}) => `${markup(def, o)}\n<style>\n${styles(def)}\n</style>`;
+
+const find = (name: string) => {
+  const def = loaders.find((d) => d.name === name);
+  if (!def) throw new Error(`@coleoni/loaders: there is no loader named "${name}" (the names: ${loaders.map((d) => d.name).join(', ')})`);
+  return def;
+};
+
+/** a loader's markup by name, for pages without React: html('arc', { size: 24 }) */
+export const html = (name: string, o: Options = {}) => markup(find(name), o);
+
+/** the CSS a loader needs, by name: add it once to the page */
+export const css = (name: string) => styles(find(name));
