@@ -1,7 +1,7 @@
 // @coleoni/loaders: loading indicators for React, by Coleoni.
 
 import { component } from './react';
-import { arc, atom, blocks, bouncingDots, cascade, circularDots, classic, classicV2, clock, comet, dual, eclipse, flip, gather, leap, linearDots, morph, orbit, pulse, ring, ripple, slide, snake, swirl, trace, wave } from './defs';
+import { arc, atom, blocks, bouncingDots, cascade, circularDots, classic, classicV2, clock, coleoni, comet, dual, eclipse, flip, gather, leap, linearDots, morph, orbit, pulse, ring, ripple, slide, snake, swirl, trace, wave } from './defs';
 
 export { loaders } from './defs';
 
@@ -17,6 +17,7 @@ export const CircularDots = /*#__PURE__*/ component(circularDots);
 export const Classic = /*#__PURE__*/ component(classic);
 export const ClassicV2 = /*#__PURE__*/ component(classicV2);
 export const Clock = /*#__PURE__*/ component<'easing'>(clock);
+export const Coleoni = /*#__PURE__*/ component(coleoni);
 export const Comet = /*#__PURE__*/ component<'easing'>(comet);
 export const Dual = /*#__PURE__*/ component<'easing' | 'cap'>(dual);
 export const Eclipse = /*#__PURE__*/ component(eclipse);

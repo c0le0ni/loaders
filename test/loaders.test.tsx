@@ -24,9 +24,9 @@ const react = (def: AnyDef, o: Options = {}) => {
 };
 
 describe('the catalog', () => {
-  it('has 26 loaders, each with a unique name and an exported component', () => {
-    expect(loaders).toHaveLength(26);
-    expect(new Set(loaders.map((d) => d.name)).size).toBe(26);
+  it('has 27 loaders, each with a unique name and an exported component', () => {
+    expect(loaders).toHaveLength(27);
+    expect(new Set(loaders.map((d) => d.name)).size).toBe(27);
     for (const d of loaders) expect(typeof (pkg as Record<string, unknown>)[d.component]).toBe('function');
   });
 
