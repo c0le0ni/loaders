@@ -31,6 +31,6 @@
     const langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language];
     fromBrazil = fromBrazil || langs.some((l) => /^pt-br$/i.test(l || ''));
   }
-  // the hash carries the avatar, so it travels with the redirect
+  // the path names the loader, so /arc/ goes to /pt/arc/; the query and the hash go along
   if (fromBrazil) location.replace(`/pt${path}${location.search}${location.hash}`);
 })();
