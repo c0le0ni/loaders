@@ -8,6 +8,8 @@ export const SITE = 'https://loaders.coleoni.com';
 export const REPO = 'https://github.com/c0le0ni/loaders';
 export const NPM = 'https://www.npmjs.com/package/@coleoni/loaders';
 export const COLEONI = 'https://coleoni.com';
+/** coleoni.com in the page's language (it serves Portuguese at /pt, and /pt/ redirects there) */
+export const coleoniIn = (lang: string) => (lang === 'pt' ? `${COLEONI}/pt` : COLEONI);
 export const SKILLS = 'https://skills.coleoni.com';
 export const BLOB = 'https://blob.coleoni.com';
 export const INSTALL = 'npm i @coleoni/loaders';

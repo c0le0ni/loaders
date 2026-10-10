@@ -2,7 +2,7 @@ import { loaders } from '@coleoni/loaders';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { Strings } from '../i18n/strings';
 import { cn } from '../lib/cn';
-import { BLOB, COLEONI, NPM, REPO, SKILLS, byName, defaults, type Settings } from '../site';
+import { BLOB, NPM, REPO, SKILLS, byName, coleoniIn, defaults, type Settings } from '../site';
 import { GithubIcon } from './brand';
 import { Gallery } from './gallery';
 import { useNotice } from './hooks';
@@ -90,7 +90,7 @@ export function App({ S, initial }: { S: Strings; initial: string }) {
         <footer className="flex shrink-0 flex-wrap items-center justify-center gap-x-2 gap-y-1 px-4 py-3 text-2xs text-foreground-muted md:h-10 md:py-0">
           <span>
             {S.madeBy}{' '}
-            <a href={COLEONI} rel="noopener" className="font-medium text-foreground transition-colors hover:text-accent-emphasis">
+            <a href={coleoniIn(S.lang)} rel="noopener" className="font-medium text-foreground transition-colors hover:text-accent-emphasis">
               Coleoni
             </a>
           </span>

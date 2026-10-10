@@ -2,7 +2,7 @@ import { Check, ChevronDown, Copy, Globe, Moon, Sun } from 'lucide-react';
 import type { KeyboardEvent, ReactNode } from 'react';
 import { STRINGS, type Strings } from '../i18n/strings';
 import { cn } from '../lib/cn';
-import { COLEONI, INSTALL, REPO } from '../site';
+import { INSTALL, REPO, coleoniIn } from '../site';
 import { ColeoniLockup, ColeoniSymbol, GithubIcon, LoadersWordmark } from './brand';
 import { copy, useTheme } from './hooks';
 import { Button } from './primitives/button';
@@ -122,7 +122,7 @@ export function TopBar({ S, center, end, className }: { S: Strings; center?: Rea
   return (
     <header className={cn('relative z-30 flex h-14 shrink-0 items-center gap-3 px-3 sm:px-5', className)}>
       <div className="flex min-w-0 items-center gap-3">
-        <a href={COLEONI} rel="noopener" aria-label={S.coleoni} data-intro className="flex shrink-0 rounded-sm text-foreground transition-opacity hover:opacity-80">
+        <a href={coleoniIn(S.lang)} rel="noopener" aria-label={S.coleoni} data-intro className="flex shrink-0 rounded-sm text-foreground transition-opacity hover:opacity-80">
           <ColeoniLockup className="max-sm:hidden" />
           <ColeoniSymbol className="sm:hidden" />
         </a>
