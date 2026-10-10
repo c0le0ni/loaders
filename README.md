@@ -7,7 +7,7 @@
 
 <p align="center">
   27 loading animations for React and plain HTML. Pick one, set its size, color<br>
-  and speed, and copy the code. Free, open source, about 8 KB for all of them.
+  and speed, and copy the code. Free, open source, about 9 KB for all of them.
 </p>
 
 <p align="center">
