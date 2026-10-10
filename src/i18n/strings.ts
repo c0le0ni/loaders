@@ -107,6 +107,7 @@ const en = {
   toLight: 'Light theme',
   toDark: 'Dark theme',
   github: 'GitHub',
+  npm: 'npm',
   newTab: '(opens in a new tab)',
   madeBy: 'Made by',
   skills: 'Skills',

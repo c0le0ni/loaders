@@ -2,7 +2,7 @@ import { loaders } from '@coleoni/loaders';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { Strings } from '../i18n/strings';
 import { cn } from '../lib/cn';
-import { BLOB, COLEONI, REPO, SKILLS, byName, defaults, type Settings } from '../site';
+import { BLOB, COLEONI, NPM, REPO, SKILLS, byName, defaults, type Settings } from '../site';
 import { GithubIcon } from './brand';
 import { Gallery } from './gallery';
 import { useNotice } from './hooks';
@@ -87,7 +87,7 @@ export function App({ S, initial }: { S: Strings; initial: string }) {
             <Inspector name={selected} settings={settings[selected]} onSettings={change} onReset={reset} color={color} onColor={setColor} S={S} />
           </div>
         </main>
-        <footer className="flex h-10 shrink-0 items-center justify-center gap-2 px-4 text-2xs text-foreground-muted">
+        <footer className="flex shrink-0 flex-wrap items-center justify-center gap-x-2 gap-y-1 px-4 py-3 text-2xs text-foreground-muted md:h-10 md:py-0">
           <span>
             {S.madeBy}{' '}
             <a href={COLEONI} rel="noopener" className="font-medium text-foreground transition-colors hover:text-accent-emphasis">
@@ -98,6 +98,11 @@ export function App({ S, initial }: { S: Strings; initial: string }) {
           <a href={REPO} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 transition-colors hover:text-foreground">
             <GithubIcon className="size-3" />
             {S.github}
+            <span className="sr-only"> {S.newTab}</span>
+          </a>
+          <span aria-hidden>·</span>
+          <a href={NPM} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-foreground">
+            {S.npm}
             <span className="sr-only"> {S.newTab}</span>
           </a>
           <span aria-hidden>·</span>
