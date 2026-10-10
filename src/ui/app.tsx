@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import type { Strings } from '../i18n/strings';
 import { cn } from '../lib/cn';
 import { BLOB, NPM, REPO, SKILLS, byName, coleoniIn, defaults, type Settings } from '../site';
-import { GithubIcon } from './brand';
+import { ColeoniMark, GithubIcon } from './brand';
 import { Gallery } from './gallery';
 import { useNotice } from './hooks';
 import { Inspector } from './inspector';
@@ -99,8 +99,10 @@ export function App({ S, initial }: { S: Strings; initial: string }) {
           <p className="text-center leading-5 text-balance whitespace-nowrap">
             <span>
               {S.madeBy}{' '}
-              <a href={coleoniIn(S.lang)} rel="noopener" className="font-medium text-foreground transition-colors hover:text-accent-emphasis">
+              <a href={coleoniIn(S.lang)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-[0.5em] align-top font-medium text-foreground transition-colors hover:text-accent-emphasis">
+                <ColeoniMark />
                 Coleoni
+                <span className="sr-only"> {S.newTab}</span>
               </a>
             </span>
             <Sep />
