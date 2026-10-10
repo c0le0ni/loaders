@@ -316,6 +316,14 @@
   border-radius: 4px;
 }
 
+/* a separator that never dangles: a plain space, widened and drawn as a dot. Where a
+   line wraps, the space at its end is dropped, and the dot goes with it */
+.sep {
+  white-space: normal;
+  word-spacing: 1rem;
+  background: radial-gradient(circle at 50% 56%, currentColor 0 0.8px, transparent 1.3px) no-repeat;
+}
+
 /* the first paint: the tiles come in along the grid, then the card */
 @keyframes site-pop {
   from {

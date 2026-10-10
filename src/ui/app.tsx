@@ -13,6 +13,13 @@ import { GithubLink, InstallCommand, LanguageMenu, ThemeToggle, TopBar } from '.
 /** the loader the home page opens on */
 export const HOME_LOADER = 'coleoni';
 
+/** the dot between two footer links: a space drawn as a dot, so a line that wraps there drops it */
+const Sep = () => (
+  <span aria-hidden className="sep">
+    {' '}
+  </span>
+);
+
 function Toaster() {
   const notice = useNotice();
   const [shown, setShown] = useState(notice);
@@ -87,32 +94,35 @@ export function App({ S, initial }: { S: Strings; initial: string }) {
             <Inspector name={selected} settings={settings[selected]} onSettings={change} onReset={reset} color={color} onColor={setColor} S={S} />
           </div>
         </main>
-        <footer className="flex shrink-0 flex-wrap items-center justify-center gap-x-2 gap-y-1 px-4 py-3 text-2xs text-foreground-muted md:h-10 md:py-0">
-          <span>
-            {S.madeBy}{' '}
-            <a href={coleoniIn(S.lang)} rel="noopener" className="font-medium text-foreground transition-colors hover:text-accent-emphasis">
-              Coleoni
+        {/* one line from md up; below it the footer wraps only at the dots, which a wrapped line drops (see .sep) */}
+        <footer className="flex shrink-0 items-center justify-center px-4 py-3 text-2xs text-foreground-muted md:h-10 md:py-0">
+          <p className="text-center leading-5 text-balance whitespace-nowrap">
+            <span>
+              {S.madeBy}{' '}
+              <a href={coleoniIn(S.lang)} rel="noopener" className="font-medium text-foreground transition-colors hover:text-accent-emphasis">
+                Coleoni
+              </a>
+            </span>
+            <Sep />
+            <a href={REPO} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 align-top transition-colors hover:text-foreground">
+              <GithubIcon className="size-3" />
+              {S.github}
+              <span className="sr-only"> {S.newTab}</span>
             </a>
-          </span>
-          <span aria-hidden>·</span>
-          <a href={REPO} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 transition-colors hover:text-foreground">
-            <GithubIcon className="size-3" />
-            {S.github}
-            <span className="sr-only"> {S.newTab}</span>
-          </a>
-          <span aria-hidden>·</span>
-          <a href={NPM} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-foreground">
-            {S.npm}
-            <span className="sr-only"> {S.newTab}</span>
-          </a>
-          <span aria-hidden>·</span>
-          <a href={`${SKILLS}${S.path}`} rel="noopener" className="transition-colors hover:text-foreground">
-            {S.skills}
-          </a>
-          <span aria-hidden>·</span>
-          <a href={`${BLOB}${S.path}`} rel="noopener" className="transition-colors hover:text-foreground">
-            {S.blob}
-          </a>
+            <Sep />
+            <a href={NPM} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-foreground">
+              {S.npm}
+              <span className="sr-only"> {S.newTab}</span>
+            </a>
+            <Sep />
+            <a href={`${SKILLS}${S.path}`} rel="noopener" className="transition-colors hover:text-foreground">
+              {S.skills}
+            </a>
+            <Sep />
+            <a href={`${BLOB}${S.path}`} rel="noopener" className="transition-colors hover:text-foreground">
+              {S.blob}
+            </a>
+          </p>
         </footer>
       </div>
       <Toaster />
