@@ -12,8 +12,14 @@ function toHtml(n: Node, depth: number): string {
   return `${pad}<${n.tag}${attrs}>\n${n.children.map((c) => toHtml(c, depth + 1)).join('\n')}\n${pad}</${n.tag}>`;
 }
 
+/** what the HTML functions take: a loader's options, plus its label */
+export type HtmlOptions = Options & {
+  /** what screen readers announce (default "Loading"), like aria-label on the React component */
+  label?: string;
+};
+
 /** the markup of one loader, as the React component would render it */
-export function markup(def: AnyDef, o: Options = {}): string {
+export function markup(def: AnyDef, o: HtmlOptions = {}): string {
   const root = rootAttrs(def, o);
   const style = Object.entries(root.style)
     .map(([k, v]) => `${k}:${v}`)
@@ -23,14 +29,14 @@ export function markup(def: AnyDef, o: Options = {}): string {
     .join('');
   const state = root.state ? ` data-state="${root.state}"` : '';
   const inner = def.tree(resolveExtras(def, o)).map((c) => toHtml(c, 1));
-  return `<span class="${root.className}" role="status" aria-label="Loading"${data}${state} style="${esc(style)}">\n${inner.join('\n')}\n</span>`;
+  return `<span class="${root.className}" role="status" aria-label="${esc(o.label ?? 'Loading')}"${data}${state} style="${esc(style)}">\n${inner.join('\n')}\n</span>`;
 }
 
 /** the CSS one loader needs: the shared rules and its own */
 export const styles = (def: AnyDef) => `${BASE_CSS}\n${def.css}`;
 
 /** a self-contained snippet: the markup and its <style>, ready to paste anywhere */
-export const snippet = (def: AnyDef, o: Options = {}) => `${markup(def, o)}\n<style>\n${styles(def)}\n</style>`;
+export const snippet = (def: AnyDef, o: HtmlOptions = {}) => `${markup(def, o)}\n<style>\n${styles(def)}\n</style>`;
 
 const find = (name: string) => {
   const def = loaders.find((d) => d.name === name);
@@ -38,8 +44,8 @@ const find = (name: string) => {
   return def;
 };
 
-/** a loader's markup by name, for pages without React: html('arc', { size: 24 }) */
-export const html = (name: string, o: Options = {}) => markup(find(name), o);
+/** a loader's markup by name, for pages without React: html('arc', { size: 24, label: 'Saving' }) */
+export const html = (name: string, o: HtmlOptions = {}) => markup(find(name), o);
 
 /** the CSS a loader needs, by name: add it once to the page */
 export const css = (name: string) => styles(find(name));

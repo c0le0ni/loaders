@@ -99,8 +99,10 @@ document.head.insertAdjacentHTML("beforeend", `<style>${css("ring")}</style>`);
 ## Accessibility
 
 - Each loader tells screen readers it is loading (`role="status"`, labelled
-  "Loading"). Next to a text that already says so, hide it with `aria-hidden`, or
-  give it your own words with `aria-label`.
+  "Loading"). Next to a text that already says so, hide it with `aria-hidden`.
+- To say it in your own words, or in another language, give it a label of your own:
+  `<Ring aria-label="Carregando" />` in React, `html("ring", { label: "Carregando" })`
+  without it.
 - For visitors who ask their system for less motion, every loader stops on a still
   pose of its own.
 

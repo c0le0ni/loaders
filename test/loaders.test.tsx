@@ -2,7 +2,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 import * as pkg from '../packages/loaders/src/index';
 import { loaders } from '../packages/loaders/src/index';
-import { markup, snippet } from '../packages/loaders/src/html';
+import { html as htmlOf, markup, snippet } from '../packages/loaders/src/html';
 import { component } from '../packages/loaders/src/react';
 import type { AnyDef, Options } from '../packages/loaders/src/core';
 
@@ -63,6 +63,12 @@ describe('a rendered loader', () => {
     expect(html).toContain('aria-hidden="true"');
     expect(html).toContain('class="cl cl-arc mine"');
   });
+
+  it('takes its own label over the default one', () => {
+    const html = react(loaders[0], { 'aria-label': 'Carregando' } as Options);
+    expect(html).toContain('aria-label="Carregando"');
+    expect(html).not.toContain('aria-label="Loading"');
+  });
 });
 
 describe('the HTML snippet', () => {
@@ -72,6 +78,13 @@ describe('the HTML snippet', () => {
       for (const [k, values] of Object.entries(d.choices as Record<string, readonly string[]>)) for (const v of values) variants.push({ [k]: v });
       for (const o of variants) expect(normalize(markup(d, o))).toBe(normalize(react(d, o)));
     }
+  });
+
+  it('takes a label, escaped, and says "Loading" without one', () => {
+    expect(htmlOf('ring')).toContain('aria-label="Loading"');
+    expect(htmlOf('ring', { label: 'Carregando' })).toContain('aria-label="Carregando"');
+    expect(htmlOf('ring', { label: 'Saving "draft"' })).toContain('aria-label="Saving &quot;draft&quot;"');
+    expect(htmlOf('ring', { label: 'Carregando' })).not.toContain('Loading');
   });
 
   it('carries its own CSS, scoped to the loader', () => {
