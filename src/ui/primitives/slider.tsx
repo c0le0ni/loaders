@@ -18,7 +18,7 @@ export function Slider({ label, value, min, max, step, onChange, show, className
   const fill = ((value - min) / (max - min)) * 100;
   return (
     <label className={cn('flex flex-col gap-2', className)}>
-      <span className="flex items-baseline justify-between text-xs">
+      <span className="flex flex-wrap items-baseline justify-between gap-x-3 text-xs">
         <span className="font-medium text-foreground-muted">{label}</span>
         <span className="font-mono text-foreground tabular-nums">{show(value)}</span>
       </span>

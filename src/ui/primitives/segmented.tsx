@@ -62,7 +62,7 @@ export function Segmented<T extends string>({ label, options, value, onChange, t
       role={tabs ? 'tablist' : 'group'}
       aria-label={label}
       onKeyDown={onKeyDown}
-      className={cn('relative flex items-center gap-0.5 rounded-lg bg-surface-sunken p-0.5', className)}
+      className={cn('relative flex items-stretch gap-0.5 rounded-lg bg-surface-sunken p-0.5', className)}
     >
       {thumb === null || thumb.width === 0 ? null : (
         <span
@@ -83,9 +83,9 @@ export function Segmented<T extends string>({ label, options, value, onChange, t
             aria-label={iconOnly ? option.label : undefined}
             onClick={() => onChange(option.value)}
             className={cn(
-              'relative flex flex-1 items-center justify-center gap-1.5 rounded-md font-medium whitespace-nowrap text-foreground-muted',
+              'relative flex min-w-0 flex-1 items-center justify-center gap-1.5 rounded-md text-center font-medium text-foreground-muted [overflow-wrap:anywhere]',
               'transition-colors duration-(--motion-normal) hover:text-foreground data-[on=true]:text-foreground',
-              size === 'sm' ? 'h-6 px-2.5 text-xs touch:h-9' : 'h-7 px-3 text-sm touch:h-9',
+              size === 'sm' ? 'min-h-6 px-2.5 py-1 text-xs touch:min-h-9' : 'min-h-7 px-3 py-1 text-sm touch:min-h-9',
               iconOnly && (size === 'sm' ? 'px-2' : 'px-3'),
             )}
           >

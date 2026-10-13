@@ -26,7 +26,7 @@ export function Inspector({ name, settings, onSettings, onReset, color, onColor,
   const label = NAMES[def.name];
 
   return (
-    <section aria-label={S.settings} className={cn('flex flex-col gap-4 rounded-xl border border-border bg-surface p-4 shadow-lg md:max-h-full md:min-h-0', className)}>
+    <section aria-label={S.settings} className={cn('flex flex-col gap-4 rounded-xl border border-border bg-surface p-4 shadow-lg [overflow-wrap:anywhere] md:max-h-full md:min-h-0', className)}>
       <header className="flex items-start gap-3">
         <div className="min-w-0 flex-1">
           <h2 className="text-lg font-semibold tracking-tight text-foreground">{label}</h2>
@@ -75,9 +75,9 @@ export function Inspector({ name, settings, onSettings, onReset, color, onColor,
         </div>
 
         <div className="flex flex-col gap-2">
-          <div className="flex items-center justify-between gap-2">
-            <Segmented label={S.code} value={lang} onChange={setLang} tabs options={[{ value: 'react', label: S.react, controls: 'code-panel' }, { value: 'html', label: S.html, controls: 'code-panel' }]} className="w-40" />
-            <Button variant="primary" size="md" onClick={() => copy(code, S.copiedCode(label), S.copyFailed)}>
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <Segmented label={S.code} value={lang} onChange={setLang} tabs options={[{ value: 'react', label: S.react, controls: 'code-panel' }, { value: 'html', label: S.html, controls: 'code-panel' }]} className="max-w-40 grow basis-28" />
+            <Button variant="primary" size="md" className="h-auto min-h-control max-w-full shrink py-1 whitespace-normal touch:h-auto touch:min-h-10" onClick={() => copy(code, S.copiedCode(label), S.copyFailed)}>
               <Copy aria-hidden />
               {S.copyCode}
             </Button>
