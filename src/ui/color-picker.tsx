@@ -158,7 +158,7 @@ export function ColorPicker({ value, onChange, S }: { value: string; onChange: (
 const SWATCH = cn(
   'relative aspect-square w-full rounded-full shadow-[inset_0_0_0_1px_var(--pulse-border-strong)] outline-offset-4',
   'transition-[scale,box-shadow] duration-(--motion-normal) ease-out-expo hover:scale-108 active:scale-95',
-  'data-[on=true]:shadow-[inset_0_0_0_1px_var(--pulse-border-strong),0_0_0_2px_var(--pulse-surface),0_0_0_4px_var(--pulse-foreground)]',
+  'data-[on=true]:shadow-[inset_0_0_0_2px_var(--pulse-foreground),inset_0_0_0_4px_var(--pulse-surface)]',
 );
 
 /** the swatches and a way to any other color; "" is the text color */

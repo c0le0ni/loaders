@@ -108,7 +108,7 @@ export function InstallCommand({ S, className }: { S: Strings; className?: strin
 
 export function GithubLink({ S }: { S: Strings }) {
   return (
-    <Button asChild variant="ghost" className="h-8 gap-1.5 px-2.5 touch:h-10">
+    <Button asChild variant="ghost" className="-mr-2.5 h-8 gap-1.5 px-2.5 touch:h-10">
       <a href={REPO} target="_blank" rel="noopener noreferrer">
         <GithubIcon className="size-4" />
         <span className="max-sm:sr-only">{S.github}</span>
@@ -120,7 +120,7 @@ export function GithubLink({ S }: { S: Strings }) {
 
 export function TopBar({ S, center, end, className }: { S: Strings; center?: ReactNode; end: ReactNode; className?: string }) {
   return (
-    <header className={cn('relative z-30 flex h-14 shrink-0 items-center gap-3 px-3 sm:px-5', className)}>
+    <header className={cn('relative z-30 flex h-14 shrink-0 items-center gap-3 px-3 md:px-5', className)}>
       <div className="flex min-w-0 items-center gap-3">
         <a href={coleoniIn(S.lang)} rel="noopener" aria-label={S.coleoni} data-intro className="flex shrink-0 rounded-sm text-foreground transition-opacity hover:opacity-80">
           <ColeoniLockup className="max-sm:hidden" />

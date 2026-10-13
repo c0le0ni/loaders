@@ -82,7 +82,7 @@ export function App({ S, initial }: { S: Strings; initial: string }) {
             </>
           }
         />
-        <div className="flex justify-center px-3 pb-2 lg:hidden">
+        <div className="flex justify-center px-3 pb-3 md:px-5 lg:hidden">
           <InstallCommand S={S} />
         </div>
         <main id="content" tabIndex={-1} className="flex min-h-0 outline-none flex-1 flex-col gap-3 px-3 pb-3 md:flex-row md:gap-4 md:px-5 md:pb-0">
