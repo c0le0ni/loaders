@@ -345,3 +345,16 @@
   animation: site-rise 520ms var(--ease-out-expo) both;
   animation-delay: 180ms;
 }
+
+/* Screen recordings (Umami): what redraws every frame carries rr-block and is
+   recorded as an empty box, which the player paints grey. These rules match only
+   that empty box, never the live page (its elements always have children). */
+.rr-block:empty {
+  background: none;
+}
+.loaders-wordmark.rr-block:empty {
+  background: url('/brand/loaders.svg') left center / contain no-repeat;
+}
+[data-theme='light'] .loaders-wordmark.rr-block:empty {
+  background-image: url('/brand/loaders-dark.svg');
+}
