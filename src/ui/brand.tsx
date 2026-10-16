@@ -51,7 +51,8 @@ export function LoadersWordmark({ className }: { className?: string }) {
     id = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(id);
   }, [reduced]);
-  return <span ref={host} aria-hidden="true" className={cn('flex [&_svg]:h-5.5 [&_svg]:w-auto', className)} dangerouslySetInnerHTML={{ __html: html }} />;
+  // drawn every frame, so the screen recorder keeps only its box (rr-block)
+  return <span ref={host} aria-hidden="true" className={cn('rr-block flex [&_svg]:h-5.5 [&_svg]:w-auto', className)} dangerouslySetInnerHTML={{ __html: html }} />;
 }
 
 /** the GitHub mark, as the Skills site draws it */
