@@ -53,7 +53,7 @@ export function Inspector({ name, settings, onSettings, onReset, color, onColor,
       </header>
 
       {/* on a desktop the card never outgrows the screen: everything below the title scrolls inside it */}
-      <div className="flex flex-col gap-4 *:shrink-0 md:-mx-4 md:-mb-4 md:min-h-0 md:overflow-y-auto md:px-4 md:pb-4 md:[scrollbar-gutter:stable] md:[scrollbar-width:thin]">
+      <div className="flex flex-col gap-4 *:shrink-0 md:-mx-4 md:-mb-4 md:min-h-0 md:overflow-y-auto md:px-4 md:pb-4 md:[scrollbar-gutter:stable]">
         <div role="img" aria-label={S.preview(label)} className="grid h-44 place-items-center rounded-lg bg-surface-sunken">
           <Loader key={def.name} size={settings.size} color={color || undefined} duration={settings.duration} playState={paused ? 'paused' : 'running'} style={{ opacity: settings.opacity / 100 }} aria-hidden="true" {...settings.extras} />
         </div>
